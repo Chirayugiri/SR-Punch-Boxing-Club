@@ -8,6 +8,8 @@ const navLinks = [
   { label: "Classes", href: "#classes" },
   { label: "Schedule", href: "#schedule" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Plans", href: "#plans" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -33,7 +35,7 @@ const Navbar = () => {
             </a>
           ))}
           <a href="tel:+919307204061">
-            <Button size="sm" className="gap-2">
+            <Button variant="strike" size="sm" className="gap-2">
               <Phone className="w-3.5 h-3.5" />
               Call Now
             </Button>
@@ -72,7 +74,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a href="tel:+919307204061" className="mt-2">
-                <Button className="w-full gap-2">
+                <Button variant="strike" className="w-full gap-2">
                   <Phone className="w-4 h-4" />
                   Call Now
                 </Button>

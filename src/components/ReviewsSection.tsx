@@ -17,6 +17,21 @@ const testimonials = [
     text: "The boxing program is world-class. Technical, structured, and the instructors genuinely care about your progress.",
     rating: 5,
   },
+  {
+    name: "Sunny R.",
+    text: "Best boxing gym in Vasai! The energy here is unmatched, and the professional coaching has really improved my technique.",
+    rating: 5,
+  },
+  {
+    name: "Monica T.",
+    text: "Great place for females to learn self-defense and stay fit. The environment is very welcoming and empowering.",
+    rating: 5,
+  },
+  {
+    name: "Vikram D.",
+    text: "Intense workouts and great community. If you want to take your fitness seriously, SR PUNCH is the place to be.",
+    rating: 5,
+  },
 ];
 
 const ReviewsSection = () => {
@@ -47,7 +62,7 @@ const ReviewsSection = () => {
           <p className="text-muted-foreground text-sm mt-1">Based on 55+ customer reviews</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}

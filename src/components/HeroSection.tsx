@@ -7,15 +7,16 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover"
         style={{
           backgroundImage: `url(${heroBg})`,
-          filter: "contrast(1.25) brightness(0.4) grayscale(0.3)",
+          backgroundPosition: "center 30px",
+          filter: "contrast(1.25) brightness(0.9) grayscale(0.3)",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
-      {/* 108 Watermark */}
+      {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="font-display font-black text-[30vw] text-foreground/[0.03] leading-none">
           PUNCH

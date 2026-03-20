@@ -3,29 +3,30 @@ import { Flame, Dumbbell, Zap, Target } from "lucide-react";
 
 const classes = [
   {
-    name: "Boxing Classes",
+    name: "Boxing Training",
     level: "All Levels",
     icon: Target,
-    description: "Master the sweet science with professional coaching focusing on technique, footwork, and tactical striking.",
+    description: "Master boxing fundamentals with expert coaching focused on technique, footwork, and precision striking.",
+  },
+  {
+    name: "Professional Sparring",
+    level: "All Levels",
+    icon: Flame,
+    description: "Step into real fight scenarios with controlled, high-level sparring sessions. Sharpen your timing, defense, and ring IQ under expert supervision.",
   },
   {
     name: "Strength & Conditioning",
     level: "Advanced",
     icon: Dumbbell,
-    description: "Build explosive power and functional strength through specialized routines designed for peak performance.",
+    description: "Build explosive power, endurance, and functional strength with performance-driven training programs.",
   },
   {
     name: "Cardio Workouts",
     level: "Intermediate",
     icon: Zap,
-    description: "High-intensity sessions combining boxing drills and cardiovascular exercises to torch calories and build stamina.",
+    description: "High-intensity sessions combining boxing drills and cardio to boost stamina and burn fat.",
   },
-  {
-    name: "Functional Training",
-    level: "All Levels",
-    icon: Flame,
-    description: "A diverse range of training focused on mobility, core strength, and overall athletic development for all ages.",
-  },
+
 ];
 
 const levelColor: Record<string, string> = {
@@ -47,10 +48,10 @@ const ClassesSection = () => {
           className="mb-16"
         >
           <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
-            Programs
+            What we offer
           </p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
-            Choose Your <span className="text-gradient">Path</span>
+            Training<span className="text-gradient">Programs</span>
           </h2>
         </motion.div>
 
