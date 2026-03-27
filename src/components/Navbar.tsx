@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Classes", href: "#classes" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Plans", href: "#plans" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Trainer", href: "/trainer" },
+  { label: "Achievements", href: "/achievements" },
+  { label: "Performers", href: "/performers" },
+  { label: "Events", href: "/events" },
+  { label: "Plans", href: "/#plans" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/[0.08]">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="font-display font-black text-xl tracking-tight">
+        <a href="/" className="font-display font-black text-xl tracking-tight">
           SR <span className="text-primary">PUNCH</span>
         </a>
 
@@ -88,3 +88,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

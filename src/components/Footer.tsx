@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <a href="#" className="font-display font-black text-xl tracking-tight">
+            <a href="/" className="font-display font-black text-xl tracking-tight">
               SR <span className="text-primary">PUNCH</span>
             </a>
             <p className="text-muted-foreground text-sm mt-4 leading-relaxed">
@@ -21,13 +21,24 @@ const Footer = () => {
               Quick Links
             </h4>
             <div className="flex flex-col gap-2">
-              {["About", "Classes", "Schedule", "Reviews", "Contact"].map((link) => (
+              {[
+                { label: "About", href: "/#about" },
+                { label: "Trainer", href: "/trainer" },
+                { label: "Classes", href: "/#classes" },
+                { label: "Achievements", href: "/achievements" },
+                { label: "Performers", href: "/performers" },
+                { label: "Events", href: "/events" },
+                { label: "Schedule", href: "/#schedule" },
+                { label: "Reviews", href: "/#reviews" },
+                { label: "FAQ", href: "/#faq" },
+                { label: "Contact", href: "/#contact" }
+              ].map((link) => (
                 <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
+                  key={link.label}
+                  href={link.href}
                   className="text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>
@@ -74,3 +85,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
