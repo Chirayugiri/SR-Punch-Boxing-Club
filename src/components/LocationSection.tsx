@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import { CONFIG, CONTACT_LINKS } from "@/config/constants";
+
 
 const LocationSection = () => {
   return (
@@ -12,7 +14,7 @@ const LocationSection = () => {
           transition={{ duration: 0.5, ease: [0.2, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
+          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4 text-gradient">
             Find Us
           </p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
@@ -29,8 +31,9 @@ const LocationSection = () => {
             className="glass-card p-8 flex flex-col justify-center"
           >
             <MapPin className="w-10 h-10 text-primary mb-6" strokeWidth={1.5} />
+
             <h3 className="font-display font-bold text-lg uppercase tracking-tight mb-4 text-foreground">
-              SR PUNCH Boxing Club
+              {CONFIG.BUSINESS_NAME}
             </h3>
             <address className="text-muted-foreground leading-relaxed not-italic text-lg">
               Parnaka-Vasai West
@@ -38,12 +41,13 @@ const LocationSection = () => {
               Palghar, Maharashtra 401201
             </address>
             <a
-              href="tel:+919307204061"
+              href={CONTACT_LINKS.PHONE}
               className="text-primary font-bold mt-4 hover:underline"
             >
-              +91 9307204061
+              {CONFIG.COUNTRY_CODE} {CONFIG.PHONE_NUMBER}
             </a>
           </motion.div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

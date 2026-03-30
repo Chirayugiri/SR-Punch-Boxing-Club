@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import ScrollToTop from "./hooks/useScrollToTop";
 import Index from "./pages/Index.tsx";
 import AchievementsPage from "./pages/Achievements.tsx";
 import PerformersPage from "./pages/Performers.tsx";
@@ -18,7 +19,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
+
           <Route path="/" element={<Index />} />
           <Route path="/achievements" element={<AchievementsPage />} />
           <Route path="/performers" element={<PerformersPage />} />

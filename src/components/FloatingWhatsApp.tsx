@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { CONTACT_LINKS } from "@/config/constants";
 
 const FloatingWhatsApp = () => {
-  const whatsappUrl = `https://wa.me/919307204061?text=${encodeURIComponent(
+  const whatsappUrl = CONTACT_LINKS.WHATSAPP(
     "Hello SR PUNCH! I'm interested in joining the boxing club. Please provide me with more details."
-  )}`;
+  );
 
   return (
     <motion.a

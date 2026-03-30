@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle, Send } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
+import { CONFIG, CONTACT_LINKS } from "@/config/constants";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -61,17 +62,17 @@ const ContactSection = () => {
             transition={{ duration: 0.4, ease: [0.2, 1, 0.3, 1] }}
             className="flex flex-col gap-4"
           >
-            <a href="tel:+919307204061" className="block">
+            <a href={CONTACT_LINKS.PHONE} className="block">
               <div className="glass-card-hover p-6 flex items-center gap-4">
                 <Phone className="w-8 h-8 text-primary" strokeWidth={1.5} />
                 <div>
                   <p className="font-display font-bold text-sm uppercase tracking-tight text-foreground">Call Now</p>
-                  <p className="text-muted-foreground text-sm">+91 9307204061</p>
+                  <p className="text-muted-foreground text-sm">{CONFIG.COUNTRY_CODE} {CONFIG.PHONE_NUMBER}</p>
                 </div>
               </div>
             </a>
             <a
-              href={`https://wa.me/919307204061?text=${encodeURIComponent("Hi, I'd like to know more about training at SR PUNCH.")}`}
+              href={CONTACT_LINKS.WHATSAPP()}
               target="_blank"
               rel="noopener noreferrer"
               className="block"
@@ -85,6 +86,7 @@ const ContactSection = () => {
               </div>
             </a>
           </motion.div>
+
 
           {/* Form */}
           <motion.form

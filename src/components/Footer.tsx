@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Instagram, Facebook, Youtube, Twitter } from "lucide-react";
+import { CONFIG, CONTACT_LINKS } from "@/config/constants";
 
 const Footer = () => {
   return (
@@ -7,9 +9,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <a href="/" className="font-display font-black text-xl tracking-tight">
-              SR <span className="text-primary">PUNCH</span>
-            </a>
+            <Link to="/" className="font-display font-black text-xl tracking-tight uppercase">
+              {CONFIG.BUSINESS_NAME.split(' ')[0]} <span className="text-primary">{CONFIG.BUSINESS_NAME.split(' ')[1]}</span>
+            </Link>
             <p className="text-muted-foreground text-sm mt-4 leading-relaxed">
               The technical standard for Professional Boxing & Fitness Training in Vasai West, Palghar.
             </p>
@@ -33,13 +35,13 @@ const Footer = () => {
                 { label: "FAQ", href: "/#faq" },
                 { label: "Contact", href: "/#contact" }
               ].map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -54,18 +56,24 @@ const Footer = () => {
               <br />
               Palghar, Maharashtra 401201
             </address>
-            <a href="tel:+919307204061" className="text-primary text-sm font-bold mt-2 block hover:underline">
-              +91 9307204061
+            <a href={CONTACT_LINKS.PHONE} className="text-primary text-sm font-bold mt-2 block hover:underline">
+              {CONFIG.COUNTRY_CODE} {CONFIG.PHONE_NUMBER}
             </a>
 
             <div className="flex gap-4 mt-6">
-              {[Instagram, Facebook, Youtube, Twitter].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: CONFIG.SOCIAL.INSTAGRAM },
+                { Icon: Facebook, href: CONFIG.SOCIAL.FACEBOOK },
+                { Icon: Youtube, href: "#" },
+                { Icon: Twitter, href: "#" }
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href={Icon === Instagram ? "https://www.instagram.com/sr.punch/" : "#"}
+                  href={href}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   aria-label="Social media"
-                  target={Icon === Instagram ? "_blank" : undefined}
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
                 >
                   <Icon className="w-5 h-5" strokeWidth={1.5} />
                 </a>
@@ -75,8 +83,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-foreground/[0.05] pt-8 text-center">
-          <p className="text-muted-foreground text-xs">
-            © {new Date().getFullYear()} SR PUNCH. All rights reserved.
+          <p className="text-muted-foreground text-xs uppercase tracking-widest">
+            © {new Date().getFullYear()} {CONFIG.BUSINESS_NAME}. All rights reserved.
           </p>
         </div>
       </div>
@@ -85,4 +93,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Flame, Users, ShieldCheck } from "lucide-react";
+import { CONFIG } from "@/config/constants";
 import aboutImg from "@/assets/about-img.png";
 
 const AboutSection = () => {
@@ -35,7 +36,7 @@ const AboutSection = () => {
               
               {/* "EST. VASAI WEST" Badge */}
               <div className="absolute bottom-0 right-0 bg-primary px-6 py-3">
-                <span className="font-display font-black italic text-foreground tracking-tighter text-lg md:text-xl">
+                <span className="font-display font-black italic text-foreground tracking-tighter text-lg md:text-xl uppercase">
                   EST. VASAI WEST
                 </span>
               </div>
@@ -49,7 +50,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 1, 0.3, 1] }}
           >
-            <p className="text-primary font-body text-xs md:text-sm uppercase tracking-[0.4em] font-bold mb-4">
+            <p className="text-primary font-body text-xs md:text-sm uppercase tracking-[0.4em] font-bold mb-4 text-gradient">
               ABOUT THE CLUB
             </p>
             <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] tracking-tight mb-8">
@@ -58,8 +59,9 @@ const AboutSection = () => {
               <span className="text-foreground">JUST BOXING.</span>
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 max-w-xl">
-              SR Punch Boxing Club is one of the leading boxing training centers in Vasai West. Focused purely on boxing and fitness, the club provides professional coaching for beginners and advanced fighters. With structured training sessions, students improve strength, stamina, discipline, and real boxing skills in a high-energy environment.
+              {CONFIG.BUSINESS_NAME} is one of the leading boxing training centers in Vasai West. Focused purely on boxing and fitness, the club provides professional coaching for beginners and advanced fighters. With structured training sessions, students improve strength, stamina, discipline, and real boxing skills in a high-energy environment.
             </p>
+
 
             <div className="grid sm:grid-cols-2 gap-4">
               {features.map((f, i) => (

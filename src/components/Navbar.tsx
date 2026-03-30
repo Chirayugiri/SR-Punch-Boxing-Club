@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { CONFIG, CONTACT_LINKS } from "@/config/constants";
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -15,26 +17,40 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const handleNavLinkClick = (href: string) => {
+    setIsOpen(false);
+    // If it's a hash link on the same page, we might want to ensure it scrolls
+    if (href.startsWith("/#") && location.pathname === "/") {
+      const id = href.replace("/#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/[0.08]">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="/" className="font-display font-black text-xl tracking-tight">
-          SR <span className="text-primary">PUNCH</span>
-        </a>
+        <Link to="/" className="font-display font-black text-xl tracking-tight">
+          {CONFIG.BUSINESS_NAME.split(' ')[0]} <span className="text-primary">{CONFIG.BUSINESS_NAME.split(' ')[1]}</span>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
+              onClick={() => handleNavLinkClick(link.href)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 uppercase tracking-wider"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="tel:+919307204061">
+          <a href={CONTACT_LINKS.PHONE}>
             <Button variant="strike" size="sm" className="gap-2">
               <Phone className="w-3.5 h-3.5" />
               Call Now
@@ -64,16 +80,16 @@ const Navbar = () => {
           >
             <div className="container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  to={link.href}
+                  onClick={() => handleNavLinkClick(link.href)}
                   className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2 uppercase tracking-wider"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a href="tel:+919307204061" className="mt-2">
+              <a href={CONTACT_LINKS.PHONE} className="mt-2">
                 <Button variant="strike" className="w-full gap-2">
                   <Phone className="w-4 h-4" />
                   Call Now
@@ -88,4 +104,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

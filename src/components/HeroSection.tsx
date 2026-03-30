@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { CONFIG } from "@/config/constants";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -18,8 +19,8 @@ const HeroSection = () => {
 
       {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <span className="font-display font-black text-[30vw] text-foreground/[0.03] leading-none">
-          PUNCH
+        <span className="font-display font-black text-[30vw] text-foreground/[0.03] leading-none uppercase">
+          {CONFIG.BUSINESS_NAME.split(' ')[1] || CONFIG.BUSINESS_NAME}
         </span>
       </div>
 
@@ -31,8 +32,9 @@ const HeroSection = () => {
           transition={{ duration: 0.5, ease: [0.2, 1, 0.3, 1] }}
           className="text-primary font-body text-sm md:text-base uppercase tracking-[0.3em] mb-6"
         >
-          SR PUNCH — Vasai West
+          {CONFIG.BUSINESS_NAME} — Vasai West
         </motion.p>
+
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
