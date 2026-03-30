@@ -34,7 +34,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/[0.08]">
       <div className="container px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="font-display font-black text-xl tracking-tight">
+        <Link to="/" className="font-display font-black text-lg tracking-tight">
 
           {CONFIG.BUSINESS_NAME.split(' ')[0]} <span className="text-primary">{CONFIG.BUSINESS_NAME.split(' ')[1]}</span>
         </Link>
@@ -46,13 +46,14 @@ const Navbar = () => {
               key={link.href}
               to={link.href}
               onClick={() => handleNavLinkClick(link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 uppercase tracking-wider"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 uppercase tracking-wider"
             >
               {link.label}
             </Link>
+
           ))}
           <a href={CONTACT_LINKS.PHONE}>
-            <Button variant="strike" size="sm" className="gap-2">
+            <Button variant="strike" size="sm" className="gap-2 text-xs">
               <Phone className="w-3.5 h-3.5" />
               Call Now
             </Button>
@@ -85,13 +86,14 @@ const Navbar = () => {
                   key={link.href}
                   to={link.href}
                   onClick={() => handleNavLinkClick(link.href)}
-                  className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2 uppercase tracking-wider"
+                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 uppercase tracking-wider"
                 >
                   {link.label}
                 </Link>
+
               ))}
               <a href={CONTACT_LINKS.PHONE} className="mt-2">
-                <Button variant="strike" className="w-full gap-2">
+                <Button variant="strike" className="w-full gap-2 text-xs">
                   <Phone className="w-4 h-4" />
                   Call Now
                 </Button>
