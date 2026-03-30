@@ -15,7 +15,8 @@ const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
 const ScheduleSection = () => {
   return (
     <section id="schedule" className="section-spacing">
-      <div className="container max-w-3xl">
+      <div className="container px-4 md:px-6 max-w-3xl">
+
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}

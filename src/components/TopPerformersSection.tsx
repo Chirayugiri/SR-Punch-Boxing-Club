@@ -27,7 +27,8 @@ const performers = [
 const TopPerformersSection = () => {
   return (
     <section id="performers" className="section-spacing bg-secondary/10">
-      <div className="container">
+      <div className="container px-4 md:px-6">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

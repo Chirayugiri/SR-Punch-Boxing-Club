@@ -37,7 +37,8 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-spacing bg-secondary/30">
-      <div className="container max-w-4xl">
+      <div className="container px-4 md:px-6 max-w-4xl">
+
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}

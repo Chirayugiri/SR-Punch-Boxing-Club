@@ -6,7 +6,8 @@ import { CONFIG, CONTACT_LINKS } from "@/config/constants";
 const LocationSection = () => {
   return (
     <section className="section-spacing">
-      <div className="container">
+      <div className="container px-4 md:px-6">
+
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}

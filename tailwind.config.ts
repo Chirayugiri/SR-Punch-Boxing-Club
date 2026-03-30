@@ -7,11 +7,16 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
-      screens: {
-        "2xl": "1400px",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        md: "3rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
       },
     },
+
     extend: {
       fontFamily: {
         display: ['"Unbounded"', 'sans-serif'],

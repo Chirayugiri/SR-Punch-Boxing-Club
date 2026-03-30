@@ -5,7 +5,8 @@ import { CONFIG, CONTACT_LINKS } from "@/config/constants";
 const Footer = () => {
   return (
     <footer className="border-t border-foreground/[0.08] py-12">
-      <div className="container">
+      <div className="container px-4 md:px-6">
+
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Brand */}
           <div>
