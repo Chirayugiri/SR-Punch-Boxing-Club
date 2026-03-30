@@ -31,6 +31,13 @@ const Navbar = () => {
     }
   };
 
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) {
+      return location.pathname === "/" && location.hash === href.replace("/", "");
+    }
+    return location.pathname === href;
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/[0.08]">
       <div className="container px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
@@ -46,7 +53,9 @@ const Navbar = () => {
               key={link.href}
               to={link.href}
               onClick={() => handleNavLinkClick(link.href)}
-              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 uppercase tracking-wider"
+              className={`text-xs font-medium transition-colors duration-200 uppercase tracking-wider ${
+                isActive(link.href) ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
             </Link>
@@ -86,7 +95,9 @@ const Navbar = () => {
                   key={link.href}
                   to={link.href}
                   onClick={() => handleNavLinkClick(link.href)}
-                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 uppercase tracking-wider"
+                  className={`text-base font-medium transition-colors py-2 uppercase tracking-wider ${
+                    isActive(link.href) ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </Link>
