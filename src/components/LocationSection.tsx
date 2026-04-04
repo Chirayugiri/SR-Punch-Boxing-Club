@@ -74,4 +74,5 @@ const LocationSection = () => {
   );
 };
 
+
 export default LocationSection;
