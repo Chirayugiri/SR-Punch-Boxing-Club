@@ -65,12 +65,12 @@ const HeroSection = () => {
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center px-4"
         >
           <a href="#contact" className="w-full sm:w-auto">
-            <Button variant="strike" size="lg" className="w-full">
+            <Button variant="strike" size="lg" className="w-full tracking-[0.2em]">
               Join the Ranks
             </Button>
           </a>
           <a href="#classes" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full">
+            <Button variant="outline" size="lg" className="w-full tracking-[0.2em]">
               View Classes
             </Button>
           </a>

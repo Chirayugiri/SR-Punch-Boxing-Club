@@ -47,7 +47,7 @@ const FAQSection = () => {
           <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
             Common Inquiries
           </p>
-          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
+          <h2 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
         </motion.div>

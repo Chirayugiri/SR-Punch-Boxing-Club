@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,14 +19,49 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (location.hash) {
+        const id = location.hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = window.innerWidth < 768 ? 80 : 100;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    };
+
+    // Minor delay to ensure page elements are rendered
+    const timeoutId = setTimeout(handleScroll, 100);
+    return () => clearTimeout(timeoutId);
+  }, [location.pathname, location.hash]);
+
   const handleNavLinkClick = (href: string) => {
     setIsOpen(false);
-    // If it's a hash link on the same page, we might want to ensure it scrolls
+    
+    // Manual scroll for same-page links to ensure they trigger even if hash is same
     if (href.startsWith("/#") && location.pathname === "/") {
       const id = href.replace("/#", "");
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        const offset = window.innerWidth < 768 ? 80 : 100;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
       }
     }
   };

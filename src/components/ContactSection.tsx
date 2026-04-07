@@ -49,7 +49,7 @@ const ContactSection = () => {
           <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
             Get In Touch
           </p>
-          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
+          <h2 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight">
             Contact <span className="text-gradient">Us</span>
           </h2>
         </motion.div>

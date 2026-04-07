@@ -153,7 +153,7 @@ const UpcomingEventsSection = () => {
                   <Button 
                     variant={event.isRegistered ? "outline" : "strike"} 
                     size="lg"
-                    className="w-full uppercase tracking-[0.2em] font-black group/btn h-auto px-10"
+                    className="w-full uppercase tracking-[0.2em] font-black group/btn shrink-0"
                   >
                     {event.isRegistered ? "View Seat" : "Register Now"}
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
