@@ -56,7 +56,7 @@ const GallerySection = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,7 +65,7 @@ const GallerySection = () => {
         >
           <a href="https://www.instagram.com/sr.punch/" target="_blank" rel="noopener noreferrer">
             <Button variant="strike" size="lg" className="gap-2">
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               View More on Instagram
             </Button>
           </a>

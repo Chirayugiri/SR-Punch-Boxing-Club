@@ -74,7 +74,7 @@ const AchievementsSection = () => {
           <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
             The Legacy
           </p>
-          <h2 className="font-display font-black uppercase text-3xl md:text-6xl tracking-tight leading-none">
+          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight leading-none">
             Proven <span className="text-gradient">Excellence</span>
           </h2>
         </motion.div>
@@ -90,62 +90,70 @@ const AchievementsSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ y: -5 }}
-                className={`relative flex items-center justify-between md:mb-24 last:mb-0 group/row ${
+                className={`relative flex items-center justify-between md:mb-24 mb-12 last:mb-0 group/row ${
                   i % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                {/* Content Side */}
-                <div className="w-full md:w-[46%]">
-                  <div className={`p-8 glass-card border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-primary/30 transition-all duration-700 relative group/card overflow-hidden ${
-                    i % 2 === 0 ? "text-left border-l-primary/50" : "md:text-right md:border-r-primary/50 text-left border-l-primary/50 md:border-l-transparent"
-                  }`}>
-                    {/* Background Large Year */}
-                    <div className={`absolute -bottom-10 opacity-[0.03] font-display font-black text-9xl pointer-events-none select-none transition-all duration-700 group-hover/card:opacity-[0.06] group-hover/card:scale-110 ${
-                      i % 2 === 0 ? "-left-4 text-left" : "md:-right-4 -left-4 md:text-right"
-                    }`}>
-                      {item.year}
-                    </div>
-
-                    {/* Floating Year Tag */}
-                    <div className={`absolute -top-px bg-primary px-5 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-background z-10 shadow-lg shadow-primary/20 ${
-                      i % 2 === 0 ? "left-0" : "md:right-0 md:left-auto left-0"
-                    }`}>
-                      {item.year}
-                    </div>
-
-                    <h3 className="font-display font-black text-xl md:text-2xl uppercase tracking-tighter text-white mb-4 pt-6 leading-[1.1]">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed mb-8 relative z-10">
-                      {item.detail}
-                    </p>
-
-                    <div className={`flex items-baseline gap-3 pt-6 border-t border-white/[0.03] relative z-10 ${
-                      i % 2 === 0 ? "justify-start" : "md:justify-end justify-start flex-row"
-                    }`}>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                        Outcome
-                      </span>
-                      <span className="text-xs font-display font-bold text-foreground uppercase tracking-wide max-w-[80%] leading-snug">
-                        {item.impact}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Timeline Marker (Circle on the line) */}
-                <div className="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-14 h-14 md:w-16 md:h-16 rounded-full bg-background border border-white/10 flex items-center justify-center group-hover/row:border-primary/50 group-hover/row:scale-110 transition-all duration-500 overflow-hidden shadow-2xl">
+                {/* Timeline Marker (Desktop Only) */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-background border border-white/10 hidden md:flex items-center justify-center group-hover/row:border-primary/50 group-hover/row:scale-110 transition-all duration-500 overflow-hidden shadow-2xl">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/row:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10 transform group-hover/row:rotate-[10deg] transition-transform duration-500">
                     {item.icon}
                   </div>
                 </div>
 
-                {/* Vertical Line for Mobile */}
-                <div className="absolute left-[30px] top-20 bottom-0 w-px bg-foreground/[0.08] md:hidden group-last:hidden" />
+                {/* Content Side */}
+                <div className="w-full md:w-[46%]">
+                  <div className={`glass-card border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-primary/30 transition-all duration-700 relative group/card overflow-hidden ${
+                    i % 2 === 0 ? "md:text-left md:border-l-primary/50" : "md:text-right md:border-r-primary/50 text-left"
+                  }`}>
+                    {/* Background Large Year */}
+                    <div className={`absolute -bottom-10 opacity-[0.03] font-display font-black text-7xl md:text-9xl pointer-events-none select-none transition-all duration-700 group-hover/card:opacity-[0.06] group-hover/card:scale-110 ${
+                      i % 2 === 0 ? "left-4 md:-left-4 text-left" : "md:-right-4 right-4 md:text-right text-right"
+                    }`}>
+                      {item.year}
+                    </div>
+
+                    {/* Mobile Header: Icon + Year (Mobile Only) */}
+                    <div className="flex md:hidden items-center justify-between p-6 pb-0">
+                       <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                          <div className="scale-75 text-primary">
+                            {item.icon}
+                          </div>
+                       </div>
+                       <span className="font-display font-black text-2xl text-primary/20">{item.year}</span>
+                    </div>
+
+                    <div className="p-6 md:p-10">
+                      {/* Desktop Year Tag */}
+                      <div className={`absolute -top-px bg-primary px-5 py-1.5 text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-background z-10 shadow-lg shadow-primary/20 hidden md:block ${
+                        i % 2 === 0 ? "left-0" : "right-0"
+                      }`}>
+                        {item.year}
+                      </div>
+
+                      <h3 className="font-display font-black text-xl md:text-2xl uppercase tracking-tighter text-white mb-4 leading-[1.1]">
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed mb-8 relative z-10 font-body">
+                        {item.detail}
+                      </p>
+
+                      <div className={`flex items-start md:items-baseline gap-3 pt-6 border-t border-white/[0.03] relative z-10 ${
+                        i % 2 === 0 ? "justify-start" : "md:justify-end justify-start flex-col md:flex-row"
+                      }`}>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-2 shrink-0">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                          Outcome
+                        </span>
+                        <span className="text-xs md:text-sm font-display font-bold text-foreground uppercase tracking-wide leading-snug">
+                          {item.impact}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Spacer Side (Desktop Only) */}
                 <div className="hidden md:block md:w-[44%]" />

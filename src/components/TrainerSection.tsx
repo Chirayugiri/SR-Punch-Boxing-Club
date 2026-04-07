@@ -24,7 +24,7 @@ const trainer = {
 
 const TrainerSection = () => {
   return (
-    <section id="trainer" className="section-spacing bg-secondary/20">
+    <section id="trainer" className="section-spacing bg-secondary/20 overflow-hidden">
       <div className="container px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Trainer Image Column */}
@@ -45,8 +45,8 @@ const TrainerSection = () => {
               </div>
               
               {/* Name Plate */}
-              <div className="absolute -bottom-6 -right-6 md:-right-10 bg-primary px-8 py-5 shadow-2xl">
-                <h3 className="font-display font-black italic uppercase text-xl md:text-2xl text-foreground leading-none tracking-tight">
+              <div className="absolute -bottom-6 -right-4 md:-right-10 bg-primary px-6 md:px-8 py-4 md:py-5 shadow-2xl">
+                <h3 className="font-display font-black italic uppercase text-lg md:text-2xl text-foreground leading-none tracking-tight">
                   {trainer.name}
                 </h3>
                 <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold mt-2 text-foreground/80">

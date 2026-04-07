@@ -5,19 +5,19 @@ import performer3 from "@/assets/performers/performer3.png";
 
 const performers = [
   {
-    name: "Rahul Sharma",
+    name: "Badass Jack",
     category: "Professional",
     achievements: "Regional Lightweight Champion '23",
     image: performer1,
   },
   {
-    name: "Sneha Patil",
+    name: "Kate Amelia",
     category: "Amateur",
     achievements: "State Silver Medalist - Women's Flyweight",
     image: performer2,
   },
   {
-    name: "Karan Johar",
+    name: "Rambo Diaz",
     category: "Amateur",
     achievements: "Inter-City Youth Gold Winner",
     image: performer3,
@@ -65,7 +65,7 @@ const TopPerformersSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <span className="inline-block py-1 px-3 mb-4 text-[10px] font-bold uppercase tracking-widest bg-primary text-foreground">
                   {athlete.category}
                 </span>
