@@ -46,10 +46,10 @@ const ContactSection = () => {
           transition={{ duration: 0.5, ease: [0.2, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
+          <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
             Get In Touch
           </p>
-          <h2 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight">
+          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight leading-[0.9]">
             Contact <span className="text-gradient">Us</span>
           </h2>
         </motion.div>

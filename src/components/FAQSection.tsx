@@ -44,11 +44,11 @@ const FAQSection = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
+          <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
             Common Inquiries
           </p>
-          <h2 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight">
-            Frequently Asked <span className="text-gradient">Questions</span>
+          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight leading-[0.9]">
+            Frequently Asked <br className="lg:hidden"/><span className="text-gradient">Questions</span>
           </h2>
         </motion.div>
 

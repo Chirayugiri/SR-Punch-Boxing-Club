@@ -56,7 +56,7 @@ const UpcomingEventsSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-20 text-center lg:text-left"
         >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.4em] mb-4">
+          <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
             Next Battles
           </p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight leading-[0.9] inline-block">

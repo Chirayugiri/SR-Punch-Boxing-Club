@@ -66,7 +66,7 @@ const TrainerSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 1, 0.3, 1] }}
           >
-            <p className="text-primary font-body text-xs md:text-sm uppercase tracking-[0.4em] font-bold mb-4">
+            <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
               EXPERT LEADERSHIP
             </p>
             <h2 className="font-display font-black uppercase text-3xl md:text-5xl leading-[0.95] tracking-tight mb-8">

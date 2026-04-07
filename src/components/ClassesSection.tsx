@@ -47,7 +47,7 @@ const ClassesSection = () => {
           transition={{ duration: 0.5, ease: [0.2, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
+          <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
             What we offer
           </p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">

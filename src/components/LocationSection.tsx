@@ -15,7 +15,7 @@ const LocationSection = () => {
           transition={{ duration: 0.5, ease: [0.2, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4 text-gradient">
+          <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
             Find Us
           </p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
@@ -36,7 +36,7 @@ const LocationSection = () => {
             <h3 className="font-display font-bold text-lg uppercase tracking-tight mb-4 text-foreground">
               {CONFIG.BUSINESS_NAME}
             </h3>
-            <address className="text-muted-foreground leading-relaxed not-italic text-lg">
+            <address className="text-muted-foreground leading-relaxed not-italic text-sm md:text-lg">
               Parnaka-Vasai West
               <br />
               Palghar, Maharashtra 401201
