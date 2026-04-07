@@ -53,7 +53,7 @@ const AboutSection = () => {
             <p className="text-primary font-body text-xs md:text-sm uppercase tracking-[0.4em] font-bold mb-4 text-gradient">
               ABOUT THE CLUB
             </p>
-            <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] tracking-tight mb-8">
+            <h2 className="font-display font-black uppercase text-3xl md:text-5xl leading-[0.95] tracking-tight mb-8">
               NO FLUFF.
               <br />
               <span className="text-foreground">JUST BOXING.</span>

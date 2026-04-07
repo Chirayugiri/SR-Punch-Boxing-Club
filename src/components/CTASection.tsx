@@ -17,8 +17,7 @@ const CTASection = () => {
           transition={{ duration: 0.6, ease: [0.2, 1, 0.3, 1] }}
         >
           <h2
-            className="font-display font-black italic uppercase leading-[0.95] tracking-tight mb-6"
-            style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)" }}
+            className="font-display font-black italic uppercase leading-[0.95] tracking-tight mb-6 text-3xl md:text-5xl"
           >
             Start Your Boxing
             <br />

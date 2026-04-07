@@ -72,7 +72,7 @@ const MembershipSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className={`relative glass-card p-8 flex flex-col ${
-                plan.popular ? "border-primary ring-1 ring-primary/20 scale-105 z-10" : ""
+                plan.popular ? "border-primary ring-1 ring-primary/20 md:scale-105 z-10" : ""
               }`}
             >
               {plan.popular && (

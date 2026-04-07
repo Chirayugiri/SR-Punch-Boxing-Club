@@ -40,7 +40,7 @@ const ScheduleSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.04, ease: [0.2, 1, 0.3, 1] }}
-              className={`flex items-center justify-between px-6 py-4 border-b border-foreground/[0.05] last:border-b-0 transition-colors ${
+              className={`flex items-center justify-between px-4 py-4 border-b border-foreground/[0.05] last:border-b-0 transition-colors ${
                 s.day === today ? "border-l-4 border-l-primary bg-primary/[0.05]" : ""
               }`}
             >

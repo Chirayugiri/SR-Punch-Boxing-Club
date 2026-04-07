@@ -51,7 +51,7 @@ const ClassesSection = () => {
             What we offer
           </p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
-            Training<span className="text-gradient">Programs</span>
+            Training <span className="text-gradient">Programs</span>
           </h2>
         </motion.div>
 

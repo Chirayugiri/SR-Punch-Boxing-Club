@@ -32,7 +32,7 @@ const GallerySection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-[600px] md:h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-[1000px] md:h-[800px]">
           {images.map((img, i) => (
             <motion.div
               key={i}
