@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Zap, Flame } from "lucide-react";
+import { Zap, ShieldAlert } from "lucide-react";
 import { toast } from "sonner";
 
 interface FreeTrialModalProps {
@@ -22,71 +22,71 @@ const FreeTrialModal = ({ children }: FreeTrialModalProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) {
-      toast.error("Please fill in all fields");
+      toast.error("IDENTIFICATION REQUIRED: PLEASE FILL ALL FIELDS");
       return;
     }
     // Simulate API call
     setTimeout(() => {
-      toast.success("Free trial claimed! We will contact you shortly.");
+      toast.success("TRANSMISSION SUCCESSFUL: COMMAND TEAM CONTACTING YOU SOON.");
       setOpen(false);
       setFormData({ name: "", phone: "" });
     }, 500);
   };
 
   const inputClass =
-    "w-full bg-secondary/50 border border-foreground/[0.08] px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors font-body text-sm mt-2";
+    "w-full bg-background border border-white/10 px-4 py-4 text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-primary transition-colors font-display font-bold text-xs tracking-widest mt-2 rounded-none";
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-md border-primary/20 bg-background/95 backdrop-blur-xl">
-        <DialogHeader className="mb-4">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-1 flex items-center gap-1 rounded-sm">
-              <Flame className="w-3 h-3" />
-              Only 3 Slots Left This Week!
+      <DialogContent className="sm:max-w-md border-white/5 bg-[#0d0d0d] rounded-none p-10">
+        <DialogHeader className="mb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="bg-primary text-foreground text-[8px] font-display font-black uppercase tracking-widest px-3 py-1 flex items-center gap-2">
+              <ShieldAlert className="w-3 h-3" />
+              CRITICAL: 5 SLOTS REMAINING
             </span>
           </div>
-          <DialogTitle className="font-display font-black italic uppercase text-3xl md:text-4xl text-foreground leading-[0.95] tracking-tight">
-            Claim Your <span className="text-gradient">Free Trial</span>
+          <DialogTitle className="font-display font-black uppercase text-3xl md:text-4xl text-foreground leading-none tracking-tighter">
+            CLAIM YOUR <span className="text-gradient">PASS</span>
           </DialogTitle>
-          <DialogDescription className="font-body text-muted-foreground mt-2 text-sm md:text-base">
-            Experience the real boxing environment. Enter your details to secure your free 1-day access pass.
+          <DialogDescription className="font-body text-muted-foreground mt-4 text-sm leading-relaxed">
+            INITIATE YOUR TRANSFORMATION. ENTER YOUR COORDINATES TO SECURE ELITE 1-DAY ACCESS.
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div>
-            <label className="text-xs uppercase tracking-widest text-primary font-bold">
-              Full Name
+            <label className="label-tactical !text-[10px]">
+              OPERATIVE_NAME
             </label>
             <input
               type="text"
-              placeholder="John Doe"
+              placeholder="IDENTIFY YOURSELF"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className={inputClass}
             />
           </div>
           <div>
-            <label className="text-xs uppercase tracking-widest text-primary font-bold">
-              Phone Number
+            <label className="label-tactical !text-[10px]">
+              COMMS_LINE (PHONE)
             </label>
             <input
               type="tel"
-              placeholder="+91 98765 43210"
+              placeholder="+91 00000 00000"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className={inputClass}
             />
           </div>
 
-          <Button type="submit" variant="strike" size="lg" className="w-full gap-2 mt-2">
+          <Button type="submit" variant="strike" className="w-full h-18 gap-3 mt-4 text-xs tracking-[0.25em]">
             <Zap className="w-4 h-4" />
-            Secure My Spot Now
+            SECURE ACCESS PASS
           </Button>
-          <p className="text-[10px] text-muted-foreground text-center mt-2 font-body">
-            By claiming, you agree to our gym's terms and conditions.
+          <p className="text-[8px] text-muted-foreground text-center mt-2 font-display font-bold uppercase tracking-widest opacity-40">
+            By proceeding, you accept all station protocols & terms.
           </p>
         </form>
       </DialogContent>

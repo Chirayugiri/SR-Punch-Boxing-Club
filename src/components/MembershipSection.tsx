@@ -1,110 +1,130 @@
 import { motion } from "framer-motion";
-import { Check, Zap } from "lucide-react";
+import { Check, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FreeTrialModal from "./FreeTrialModal";
 
 const plans = [
   {
-    name: "General Fitness",
-    price: "2,000",
-    period: "month",
-    features: [
-      "Access to Gym Equipment",
-      "Functional Training",
-      "General Workout Plan",
-      "Locker Room Access",
-    ],
+    name: "General",
+    price: "1,200",
+    features: ["Boxing Techniques", "Stomach Workout", "Strength & Conditioning", "Flexible Timings"],
     popular: false,
+    delay: 0.1,
   },
   {
-    name: "Boxing Pro",
-    price: "3,500",
-    period: "month",
+    name: "Regular",
+    price: "1,500",
     features: [
-      "All General Features",
-      "Boxing Technique Classes",
+      "Everything in General",
+      "Pads Workout",
+      "Advanced Techniques",
       "Sparring Sessions",
-      "1-on-1 Feedback",
-      "Bag Work & Drills",
     ],
     popular: true,
+    delay: 0.2,
   },
   {
-    name: "Skill Dev",
-    price: "8,000",
-    period: "quarterly",
+    name: "Personal",
+    price: "4,000",
     features: [
-      "All Pro Features",
-      "Personal Training Sessions",
-      "Nutritional Guidance",
-      "Video Analysis",
-      "Priority Bookings",
+      "One-on-One Training",
+      "Custom Diet Plan",
+      "Goal-Based Progress",
+      "Competition Coaching",
     ],
     popular: false,
+    delay: 0.3,
   },
 ];
 
 const MembershipSection = () => {
   return (
-    <section id="plans" className="section-spacing bg-secondary/20">
-      <div className="container px-4 md:px-6">
+    <section id="plans" className="section-spacing bg-background relative overflow-hidden">
+      {/* Background Decorative Type */}
+      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+        <span className="font-display font-black text-[50vw] leading-none">FORGE</span>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
-            Membership
-          </p>
-          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">
-            Choose Your <span className="text-gradient">Plan</span>
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="text-center mb-20">
+          <p className="label-tactical mb-4">Investment Tiers</p>
+          <h2 className="font-display font-black uppercase text-4xl md:text-7xl leading-tight tracking-tighter">
+            EARN YOUR <span className="text-gradient">RANK</span>
           </h2>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-0 border border-white/5">
           {plans.map((plan, i) => (
             <motion.div
-              key={plan.name}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`relative glass-card p-8 flex flex-col ${
-                plan.popular ? "border-primary ring-1 ring-primary/20 md:scale-105 z-10" : ""
+              transition={{ duration: 0.6, delay: plan.delay }}
+              className={`relative p-8 md:p-12 flex flex-col transition-all duration-500 group ${
+                plan.popular 
+                  ? "bg-primary text-foreground glow-red-strong z-20 scale-[1.02] md:scale-110" 
+                  : "bg-white/[0.02] text-foreground hover:bg-white/[0.04] z-10"
               }`}
             >
               {plan.popular && (
-                <div className="absolute top-0 right-0 bg-primary text-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1 -translate-y-1/2 rounded-none">
-                  Most Popular
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-foreground text-background font-display font-black text-[10px] uppercase tracking-[0.2em] px-4 py-1.5 shadow-xl">
+                  MOST EFFECTIVE
                 </div>
               )}
 
-              <h3 className="font-display font-bold text-xl uppercase tracking-tight mb-2">
-                {plan.name}
-              </h3>
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-3xl font-black font-display text-primary">₹{plan.price}</span>
-                <span className="text-muted-foreground text-sm">/{plan.period}</span>
+              <div className="mb-10 text-center">
+                <p className={`font-display font-bold uppercase tracking-widest text-xs mb-4 ${plan.popular ? "text-foreground/80" : "text-primary"}`}>
+                  {plan.name} Tier
+                </p>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-2xl font-display font-bold">₹</span>
+                  <span className="text-6xl md:text-7xl font-display font-black tracking-tighter">
+                    {plan.price}
+                  </span>
+                </div>
+                <p className={`text-[10px] uppercase tracking-widest mt-2 ${plan.popular ? "text-foreground/70" : "text-muted-foreground"}`}>
+                  per month / no hidden fees
+                </p>
               </div>
 
-              <ul className="flex-grow flex flex-col gap-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-foreground/80">
-                    <Check className="w-4 h-4 text-primary shrink-0" />
-                    {feature}
+              <ul className="space-y-5 mb-12 flex-grow">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-4 text-xs md:text-sm font-display font-bold uppercase tracking-wider">
+                    <Check className={`w-4 h-4 shrink-0 ${plan.popular ? "text-foreground" : "text-primary"}`} strokeWidth={3} />
+                    <span className={plan.popular ? "text-foreground/90" : "text-foreground/70"}>
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
 
-              <a href="#contact" className="mt-auto">
-                <Button variant={plan.popular ? "strike" : "outline"} className="w-full">
-                  Get Started
+              <FreeTrialModal>
+                <Button 
+                  variant={plan.popular ? "default" : "outline"}
+                  className={`w-full py-8 font-display font-black text-xs tracking-[0.2em] transition-all ${
+                    plan.popular 
+                      ? "bg-foreground text-primary hover:bg-foreground/90 glow-red" 
+                      : "border-primary/30 text-primary hover:bg-primary/10"
+                  }`}
+                >
+                  START DRILLING
                 </Button>
-              </a>
+              </FreeTrialModal>
+
+              {/* Technical Indicator */}
+              <div className="mt-6 flex justify-center opacity-30 group-hover:opacity-60 transition-opacity">
+                <Shield className="w-5 h-5" strokeWidth={1.5} />
+              </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Global Friction Reducer */}
+        <div className="mt-16 text-center">
+           <p className="label-tactical !text-muted-foreground">
+             * All plans include Access to Heavy Bags & Basic Conditioning Gear.
+           </p>
         </div>
       </div>
     </section>

@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import { Award, BookOpen, Clock, Zap } from "lucide-react";
+import { Award, Clock, Zap } from "lucide-react";
 import headCoachImg from "@/assets/gallery1.jpeg";
 
 const trainer = {
   name: "Shravan Rajbhar",
   role: "Founder & Head Coach",
-  experience: "12+ Years Professional Boxing",
+  experience: "12+ Years Pro",
   philosophy: "Boxing isn't just about the punch; it's about the discipline, the heart, and the relentless pursuit of self-improvement. We don't just build fighters; we build character.",
   certifications: [
     "AIBA Certified Coach",
     "National Level Boxing Medalist",
-    "Professional Fitness Trainer (Certified)",
+    "Professional Fitness Trainer",
     "Self-Defense Expert",
   ],
   achievements: [
@@ -24,10 +24,14 @@ const trainer = {
 
 const TrainerSection = () => {
   return (
-    <section id="trainer" className="section-spacing bg-secondary/20 overflow-hidden">
-      <div className="container px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Trainer Image Column */}
+    <section id="trainer" className="section-spacing bg-secondary/10 overflow-hidden relative">
+      {/* Decorative BG element */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-48 h-[1px] bg-primary/20" />
+
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-16 lg:gap-24 items-center">
+          
+          {/* Trainer Image (Kinetic Frame) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -35,78 +39,80 @@ const TrainerSection = () => {
             transition={{ duration: 0.7, ease: [0.2, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative z-10 p-3 border border-primary/30 max-w-md mx-auto">
-              <div className="aspect-[3/4] overflow-hidden grayscale contrast-[1.1] brightness-90">
+            <div className="relative z-10 p-3 bg-white/5">
+              <div className="overflow-hidden aspect-[3/4]">
                 <img
                   src={trainer.image}
                   alt={trainer.name}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover img-grayscale-tactical contrast-[1.15]"
                 />
               </div>
-              
-              {/* Name Plate */}
-              <div className="absolute -bottom-6 -right-4 md:-right-10 bg-primary px-6 md:px-8 py-4 md:py-5 shadow-2xl">
-                <h3 className="font-display font-black italic uppercase text-lg md:text-2xl text-foreground leading-none tracking-tight">
+
+              {/* Name Plate (Brutalist) */}
+              <div className="absolute -bottom-6 -right-4 md:-right-10 bg-primary px-10 py-5">
+                <h3 className="font-display font-black italic uppercase text-2xl text-foreground leading-none tracking-tighter">
                   {trainer.name}
                 </h3>
-                <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold mt-2 text-foreground/80">
+                <p className="label-tactical !text-[9px] mt-2 !text-foreground/90">
                   {trainer.role}
                 </p>
               </div>
             </div>
-            
+
             {/* Background Accent Lines */}
-            <div className="absolute top-20 -left-10 w-40 h-40 border-l-2 border-t-2 border-primary/20 pointer-events-none" />
+            <div className="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-primary/20 pointer-events-none" />
           </motion.div>
 
-          {/* Content Column */}
+          {/* Content (Editorial Type) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.2, 1, 0.3, 1] }}
           >
-            <p className="text-primary font-body text-[10px] md:text-sm uppercase tracking-[0.4em] mb-4 font-black">
-              EXPERT LEADERSHIP
-            </p>
-            <h2 className="font-display font-black uppercase text-3xl md:text-5xl leading-[0.95] tracking-tight mb-8">
-              TRAIN WITH <span className="text-gradient">THE BEST</span>
+            <p className="label-tactical mb-6">Expert Leadership</p>
+            <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.9] tracking-tighter mb-10">
+              TRAIN WITH
+              <br />
+              <span className="text-gradient">THE BEST</span>
             </h2>
-            
-            <p className="text-muted-foreground text-sm md:text-base italic leading-relaxed mb-10 border-l-4 border-primary/30 pl-6 font-body">
-              "{trainer.philosophy}"
-            </p>
 
-            <div className="space-y-8">
-              {/* Experience & Certs */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center border border-primary/20">
+            <div className="mb-12 border-l-4 border-primary pl-8">
+              <p className="text-foreground/80 text-sm md:text-lg italic leading-relaxed font-body italic">
+                "{trainer.philosophy}"
+              </p>
+            </div>
+
+            <div className="space-y-10">
+              {/* Experience & Certs (Tactical Tiles) */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-center gap-4 p-5 bg-white/[0.03]">
+                  <div className="w-12 h-12 bg-primary/10 flex items-center justify-center border border-primary/20">
                     <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-primary font-bold">Experience</p>
-                    <p className="text-sm md:text-base font-display font-bold uppercase">{trainer.experience}</p>
+                    <p className="label-tactical !text-[8px] mb-1">Experience</p>
+                    <p className="text-sm font-display font-black uppercase">{trainer.experience}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center border border-primary/20">
+                <div className="flex items-center gap-4 p-5 bg-white/[0.03]">
+                  <div className="w-12 h-12 bg-primary/10 flex items-center justify-center border border-primary/20">
                     <Award className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-primary font-bold">Certification Highlights</p>
-                    <p className="text-sm md:text-base font-display font-bold uppercase">{trainer.certifications[0]}</p>
+                    <p className="label-tactical !text-[8px] mb-1">Status</p>
+                    <p className="text-sm font-display font-black uppercase">National Medalist</p>
                   </div>
                 </div>
               </div>
 
-              {/* Achievements List */}
-              <div className="grid sm:grid-cols-1 gap-3">
+              {/* Achievements (Horizontal List) */}
+              <div className="grid grid-cols-1 gap-3">
                 {trainer.achievements.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 glass-card border-none bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
-                    <Zap className="w-4 h-4 text-primary shrink-0 mt-1" />
-                    <span className="text-xs md:text-sm font-body font-medium text-foreground/90 uppercase tracking-tight">
+                  <div key={idx} className="flex items-center gap-4 p-4 hover:bg-white/[0.02] transition-colors border-b border-white/5 last:border-none">
+                    <Zap className="w-4 h-4 text-primary shrink-0" />
+                    <span className="text-xs md:text-sm font-display font-bold uppercase tracking-widest text-foreground/80">
                       {item}
                     </span>
                   </div>

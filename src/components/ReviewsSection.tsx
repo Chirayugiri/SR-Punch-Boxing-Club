@@ -1,86 +1,88 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
-const testimonials = [
+const reviews = [
   {
-    name: "Rohan S.",
-    text: "SR PUNCH transformed my fitness journey. The coaches push you to your limits while maintaining a safe, disciplined environment.",
+    name: "Rohan M.",
+    role: "Boxer / 2 Years",
+    content: "The intensity here is unparalleled. Shravan coach doesn't just teach you how to punch; he teaches you how to think like a professional athlete.",
     rating: 5,
+    color: "bg-primary",
   },
   {
-    name: "Priya M.",
-    text: "Started boxing here with zero experience. Within months I gained confidence, strength, and a new sense of discipline.",
+    name: "Anjali S.",
+    role: "Fitness Enthusiast",
+    content: "Lost 10kg in 3 months. The atmosphere is intimidating at first but that's exactly what you need to break your mental limits. Best gym in Vasai West.",
     rating: 5,
+    color: "bg-zinc-700",
   },
   {
-    name: "Arjun K.",
-    text: "The boxing program is world-class. Technical, structured, and the instructors genuinely care about your progress.",
+    name: "Vikram P.",
+    role: "National Medalist",
+    content: "SR Punch provided the technical foundation I needed to compete at the state level. The focus on footwork and defense is world-class.",
     rating: 5,
-  },
-  {
-    name: "Sunny R.",
-    text: "Best boxing gym in Vasai! The energy here is unmatched, and the professional coaching has really improved my technique.",
-    rating: 5,
-  },
-  {
-    name: "Monica T.",
-    text: "Great place for females to learn self-defense and stay fit. The environment is very welcoming and empowering.",
-    rating: 5,
-  },
-  {
-    name: "Vikram D.",
-    text: "Intense workouts and great community. If you want to take your fitness seriously, SR PUNCH is the place to be.",
-    rating: 5,
+    color: "bg-red-900",
   },
 ];
 
 const ReviewsSection = () => {
   return (
-    <section id="reviews" className="section-spacing bg-secondary/30">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.2, 1, 0.3, 1] }}
-          className="mb-16 text-center"
-        >
-          <p className="text-primary font-body text-sm uppercase tracking-[0.3em] mb-4">
-            Reputation
-          </p>
-          <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight mb-6">
-            Proven <span className="text-gradient">Results</span>
-          </h2>
-          <div className="flex items-center justify-center gap-2 mb-2">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 fill-accent text-accent" strokeWidth={1.5} />
-            ))}
-          </div>
-          <p className="text-2xl font-display font-bold text-foreground">
-            5.0 <span className="text-muted-foreground text-base font-body font-normal">/ 5 Rating</span>
-          </p>
-          <p className="text-muted-foreground text-sm mt-1">Based on 55+ customer reviews</p>
-        </motion.div>
+    <section id="reviews" className="section-spacing bg-background relative overflow-hidden">
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] -translate-y-1/2 pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {testimonials.map((t, i) => (
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-start justify-between mb-20 gap-12">
+          <div className="max-w-xl">
+            <p className="label-tactical mb-4">Tactical Feedback</p>
+            <h2 className="font-display font-black uppercase text-4xl md:text-7xl leading-none tracking-tighter mb-8">
+              VOICES FROM <br />
+              <span className="text-gradient">THE ARENA</span>
+            </h2>
+          </div>
+
+          {/* Aggregate Rating Block (Brutalist) */}
+          <div className="bg-white/5 p-8 md:p-12 border border-white/5 flex flex-col items-center">
+            <div className="flex items-center gap-2 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 fill-primary text-primary" />
+              ))}
+            </div>
+            <span className="font-display font-black text-6xl text-foreground">4.9 / 5</span>
+            <span className="label-tactical !text-[10px] mt-2 opacity-50">Verified Member Accuracy</span>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reviews.map((review, i) => (
             <motion.div
-              key={t.name}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06, ease: [0.2, 1, 0.3, 1] }}
-              className="glass-card p-8 relative"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="glass-card p-10 relative flex flex-col"
             >
-              <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" strokeWidth={1.5} />
-              <p className="text-muted-foreground leading-relaxed mb-6 relative z-10">
-                "{t.text}"
-              </p>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-primary/20 flex items-center justify-center font-display font-bold text-primary text-sm">
-                  {t.name[0]}
+              <Quote className="absolute top-10 right-10 w-12 h-12 text-white/5 pointer-events-none" />
+              
+              <div className="flex items-center gap-4 mb-8">
+                <div className={`w-12 h-12 ${review.color} flex items-center justify-center font-display font-black text-xl italic`}>
+                  {review.name[0]}
                 </div>
-                <span className="font-body font-semibold text-sm text-foreground">{t.name}</span>
+                <div>
+                  <h4 className="font-display font-black uppercase text-sm">{review.name}</h4>
+                  <p className="label-tactical !text-[8px] opacity-60 underline decoration-primary/30">{review.role}</p>
+                </div>
+              </div>
+
+              <p className="text-foreground/80 font-body text-base italic leading-relaxed mb-8 relative z-10">
+                "{review.content}"
+              </p>
+
+              <div className="mt-auto flex gap-1">
+                {[...Array(review.rating)].map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-primary text-primary" />
+                ))}
               </div>
             </motion.div>
           ))}
