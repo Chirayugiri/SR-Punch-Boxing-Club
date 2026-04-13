@@ -1,32 +1,25 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CONFIG } from "@/config/constants";
-import FreeTrialModal from "@/components/FreeTrialModal";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          style={{ filter: "contrast(1.25) brightness(0.5) grayscale(0.8)" }}
-        >
-          <source 
-            src="https://assets.mixkit.co/videos/preview/mixkit-boxer-exercising-on-a-punching-bag-40228-large.mp4" 
-            type="video/mp4" 
-          />
-        </video>
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-0" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0 bg-cover"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundPosition: "center 30px",
+          filter: "contrast(1.25) brightness(0.9) grayscale(0.3)",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
       {/* Watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <span className="font-display font-black text-[20vw] md:text-[30vw] text-white/[0.03] leading-none uppercase">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span className="font-display font-black text-[20vw] md:text-[30vw] text-foreground/[0.03] leading-none uppercase">
           {CONFIG.BUSINESS_NAME.split(' ')[1] || CONFIG.BUSINESS_NAME}
         </span>
       </div>
@@ -69,17 +62,15 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4, ease: [0.2, 1, 0.3, 1] }}
-          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center px-4 relative z-20"
+          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center px-4"
         >
-          <div className="w-full sm:w-auto">
-            <FreeTrialModal>
-              <Button variant="strike" size="lg" className="w-full tracking-[0.2em]">
-                Claim Free Trial
-              </Button>
-            </FreeTrialModal>
-          </div>
+          <a href="#contact" className="w-full sm:w-auto">
+            <Button variant="strike" size="lg" className="w-full tracking-[0.2em]">
+              Join the Ranks
+            </Button>
+          </a>
           <a href="#classes" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full tracking-[0.2em] bg-background/50 backdrop-blur-sm">
+            <Button variant="outline" size="lg" className="w-full tracking-[0.2em]">
               View Classes
             </Button>
           </a>
